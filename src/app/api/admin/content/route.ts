@@ -4,6 +4,8 @@ import { authOptions } from "@/lib/auth";
 import { Content } from "@/lib/content";
 import { logger } from "@/lib/logger";
 
+export const dynamic = "force-dynamic";
+
 async function requireStaff() {
   const session = await getServerSession(authOptions);
   if (!session?.user || !["ADMIN", "CONTENT_MANAGER"].includes(session.user.role)) return null;
